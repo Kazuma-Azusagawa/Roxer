@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Roxer</title>
+
+    <style type="text/css" media="screen">
+        @import url("style/style.css");
+    </style>
+
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+<body>
+<div class="auth-container">
+    <h2>Welcome Back</h2>
+
+    <form action="/login" method="POST" class="auth-form">
+        <input type="text" name="uname" placeholder="Username" required>
+        <input type="password" name="passwd" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="/register">Register here</a>.</p>
+</div>
+</body>
+</html>

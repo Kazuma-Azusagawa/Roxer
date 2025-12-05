@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Roxer - Watch Without Limits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <style type= "text/css" media = "screen">
+        
+        @import url("style/style.css")
+        
+        </style>
+
+<script>
+
+fetch("/api/isLoggedIn")
+    .then(res => res.json())
+    .then(data => {
+        if (data.loggedIn) {
+            document.querySelectorAll(".loged").forEach(el => el.style.display = "inline-block");
+            document.querySelectorAll(".logreg").forEach(el => el.style.display = "none");
+        } else {
+            document.querySelectorAll(".loged").forEach(el => el.style.display = "none");
+            document.querySelectorAll(".logreg").forEach(el => el.style.display = "inline-block");
+        }
+    })
+    .catch(console.error);
+</script>
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Roxer</div>
+    <div class="nav-links">
+
+          </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Unlimited Races, One Platform.</h1>
+    <p>Watch anywhere. Cancel anytime. Start watching races on Roxer today.</p>
+    <div class="hero-buttons">
+		<a href="login" class="logreg">Login</a>
+		<a href="register" class="logreg">Register</a>
+
+   		<a href="/dashboard" class="loged big-btn" style="display:none;">Wiki</a>   
+	</div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Roxer, Inc. All rights reserved.
+  </footer>
+
+</body>
+</html>
