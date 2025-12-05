@@ -6,6 +6,7 @@ import (
 	"github.com/gin-contrib/sessions/postgres"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
+	"io"
 	"net/http"
 )
 
@@ -32,13 +33,15 @@ func main() {
 	}
 
 	router.Use(sessions.Sessions("dash", store))
-	router.LoadHTMLGlob("views/html/*")
-	router.Static("/style", "/home/azz/Projects/go/Roxer/views/style")
+	router.LoadHTMLGlob("views/*")
+	router.Static("/style", "./style")
 	router.Use(sessions.Sessions("mySession", store))
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"title": "Roxer",
 		})
+		body, _ := io.ReadAll(c.Request.Body)
+		println(body)
 	})
 
 	router.GET("register", func(c *gin.Context) {
